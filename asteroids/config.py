@@ -1,11 +1,16 @@
-# graphics
+# Graphics
 WIDTH, HEIGHT = 1280, 720
 COLOR = (255, 255, 255)
 BACKGROUND = (0, 0, 0)
 LINE_WIDTH = 1
 
-# performance
-FPS = 60
+# Performance
+FPS = 30
 
-# sound
+# Sound
 SOUNDS_ON = True
+
+# Difficulty
+START_LIVES = 3
+START_ASTEROIDS = 10
+NEW_ASTEROID_PERIOD = 3.5
