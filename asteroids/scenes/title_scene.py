@@ -17,8 +17,6 @@ class TitleScene(BaseScene):
         self.title_text = Text('CENTER', 50, 'ASTEROIDS', assets.get_font('vector_battle.ttf', 80))
         self.menu_text = Text(
             'CENTER', config.HEIGHT - 200, 'press ENTER to start', assets.get_font('vector_battle.ttf', 20))
-        self.author_text = Text(
-            config.WIDTH - 75, config.HEIGHT - 15, 'by czyzi0', assets.get_font('vector_battle.ttf', 10))
         # Entities
         self.asteroids = [
             Asteroid(
@@ -48,4 +46,3 @@ class TitleScene(BaseScene):
         # Widgets
         self.title_text.display(screen)
         self.menu_text.display(screen)
-        self.author_text.display(screen)

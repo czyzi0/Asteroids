@@ -27,6 +27,3 @@ Use `arrows` to move ship and `space` to shoot. You can pause the game with `P` 
 ## Screenshots
 ![Title screen](screenshots/title_screen.png)
 ![Game screen](screenshots/game_screen.png)
-
----
-###### by czyzi0
