@@ -4,21 +4,13 @@ Clone of 1979 Atari game implemented with Pygame.
 ## Setup
 Clone repository and in `Asteroids` directory type:
 ```bash
-virtualenv -p python3 .venv
-source .venv/bin/activate
 pip install -r REQUIREMENTS
-deactivate
 ```
 
 ## Usage
 In `Asteroids` directory type:
 ```bash
-source .venv/bin/activate
 python main.py
-```
-After plying type:
-```bash
-deactivate
 ```
 
 ## Controls
