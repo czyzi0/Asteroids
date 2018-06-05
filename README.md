@@ -4,13 +4,15 @@ Clone of 1979 Atari game implemented with Pygame.
 ## Setup
 Clone repository and in `Asteroids` directory type:
 ```bash
-pip install -r REQUIREMENTS
+conda env create -f environment.yml
 ```
 
 ## Usage
 In `Asteroids` directory type:
 ```bash
+conda activate Asteroids
 python main.py
+conda deactivate
 ```
 
 ## Controls

@@ -1,0 +1,5 @@
+name: Asteroids
+dependencies:
+  - python>=3.6.0
+  - pip:
+    - pygame>=1.9.0
