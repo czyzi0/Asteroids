@@ -21,3 +21,10 @@ Use `arrows` to move ship and `space` to shoot. You can pause the game with `P` 
 ## Screenshots
 ![Title screen](screenshots/title_screen.png)
 ![Game screen](screenshots/game_screen.png)
+
+## Attributions
+> [Vector Battle](https://www.dafont.com/vector-battle.font) by [Freaky Fonts](https://www.dafont.com/freaky-fonts.d137)
+
+> [Asteroids Sounds](http://www.classicgaming.cc/classics/asteroids/sounds) from [classicgaming.cc](http://www.classicgaming.cc/)
+
+> [Asteroid B Icon](http://www.iconarchive.com/show/arcade-saturdays-icons-by-mad-science/Asteroid-B-icon.html) by [MadScienceLabs How](http://www.iconarchive.com/artist/mad-science.html)
