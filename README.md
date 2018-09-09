@@ -22,6 +22,20 @@ Use `arrows` to move ship and `space` to shoot. You can pause the game with `P` 
 ![Title screen](screenshots/title_screen.png)
 ![Game screen](screenshots/game_screen.png)
 
+## Development
+
+### Guide
+Commit messages are structured in accordance with:
+- Write the summary line and description in the imperative mode. Start the line with "Fix", "Add", "Change" instead of "Fixed", "Added", "Changed".
+- Always leave the second line blank.
+- Don't end the summary with a period.
+
+### Code analysis
+Code analysis is performed with __Pylint__. To run it type:
+```bash
+pylint Asteroids/
+```
+
 ## Attributions
 > [Vector Battle](https://www.dafont.com/vector-battle.font) by [Freaky Fonts](https://www.dafont.com/freaky-fonts.d137)
 
