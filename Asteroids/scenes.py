@@ -2,14 +2,74 @@ import random
 
 import pygame as pg
 
-from asteroids import assets
-from asteroids import config
-from asteroids.entities import Ship, Asteroid
-from asteroids.gui import Text
-from asteroids.scenes import BaseScene
+from . import assets
+from . import config
+from .entities import Asteroid, Ship
+from .gui import Text
+
+
+class BaseScene:
+
+    def __init__(self):
+        self.next_scene = self
+
+    def process_input(self, events, pressed_keys):
+        pass
+
+    def update(self):
+        pass
+
+    def display(self, screen):
+        pass
+
+    def terminate(self):
+        self.next_scene = None
+
+
+class TitleScene(BaseScene):
+
+    def __init__(self):
+        super().__init__()
+        # Widgets
+        self.title_text = Text('CENTER', 50, 'ASTEROIDS', assets.get_font('vector_battle.ttf', 80))
+        self.menu_text = Text(
+            'CENTER',
+            config.HEIGHT - 200,
+            'press ENTER to start',
+            assets.get_font('vector_battle.ttf', 20)
+        )
+        # Entities
+        self.asteroids = [
+            Asteroid(
+                x=random.randint(0, config.WIDTH),
+                y=random.randint(0, config.HEIGHT),
+                r=random.randint(20, 50)
+            )
+            for _ in range(15)
+        ]
+
+    def process_input(self, events, pressed_keys):
+        for event in events:
+            if event.type == pg.KEYDOWN and event.key == pg.K_RETURN:
+                assets.play_sound('beat.wav')
+                self.next_scene = GameScene()
+
+    def update(self):
+        for asteroid in self.asteroids:
+            asteroid.update()
+
+    def display(self, screen):
+        screen.fill(config.BACKGROUND)
+        # Entites
+        for asteroid in self.asteroids:
+            asteroid.display(screen)
+        # Widgets
+        self.title_text.display(screen)
+        self.menu_text.display(screen)
 
 
 class GameScene(BaseScene):
+    # pylint: disable=too-many-instance-attributes
 
     def __init__(self):
         super().__init__()
@@ -30,20 +90,21 @@ class GameScene(BaseScene):
         ]
         # Widgets
         self.points_text = Text(5, 5, str(self.points), assets.get_font('vector_battle.ttf', 20))
-        self.lives_text = Text(5, 30, 'x' + str(self.lives), assets.get_font('vector_battle.ttf', 20))
+        self.lives_text = Text(
+            5, 30, 'x' + str(self.lives), assets.get_font('vector_battle.ttf', 20))
         self.paused_text = Text('CENTER', 150, 'PAUSED', assets.get_font('vector_battle.ttf', 20))
-        self.lost_text = Text('CENTER', 'CENTER', 'press ENTER', assets.get_font('vector_battle.ttf', 20))
+        self.lost_text = Text(
+            'CENTER', 'CENTER', 'press ENTER', assets.get_font('vector_battle.ttf', 20))
 
     def process_input(self, events, pressed_keys):
         for event in events:
             # quit
             if (
-                event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE
-                or
-                event.type == pg.KEYDOWN and event.key == pg.K_RETURN and self.lives < 0
-            ):
+                    event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE
+                    or
+                    event.type == pg.KEYDOWN and event.key == pg.K_RETURN and self.lives < 0
+                ):
                 assets.play_sound('beat.wav')
-                from asteroids.scenes import TitleScene
                 self.next_scene = TitleScene()
             # pause
             if event.type == pg.KEYDOWN and event.key == pg.K_p and self.lives >= 0:
@@ -94,10 +155,10 @@ class GameScene(BaseScene):
 
     def new_asteroid(self):
         if (
-            random.uniform(0, 1) < 1 / (config.FPS * config.NEW_ASTEROID_PERIOD)
-            and
-            len(self.asteroids) < 30
-        ):
+                random.uniform(0, 1) < 1 / (config.FPS * config.NEW_ASTEROID_PERIOD)
+                and
+                len(self.asteroids) < 30
+            ):
             r = random.randint(40, 50)
             x = -r if random.uniform(0, 1) < 0.5 else config.WIDTH + r
             y = -r if random.uniform(0, 1) < 0.5 else config.HEIGHT + r
@@ -126,7 +187,8 @@ class GameScene(BaseScene):
                         self.ship = None
                     else:
                         self.ship = Ship(x=0.5*config.WIDTH, y=0.5*config.HEIGHT)
-                        self.lives_text = Text(5, 30, 'x' + str(self.lives), assets.get_font('vector_battle.ttf', 20))
+                        self.lives_text = Text(
+                            5, 30, 'x' + str(self.lives), assets.get_font('vector_battle.ttf', 20))
                     break
 
     def break_asteroid(self, index):

@@ -1,5 +1,15 @@
-from asteroids import config
-from asteroids.gui import BaseWidget
+import pygame as pg
+
+from . import config
+
+
+class BaseWidget:
+
+    def __init__(self, x, y):
+        self.pos = pg.math.Vector2(x, y)
+
+    def display(self, screen):
+        pass
 
 
 class Text(BaseWidget):

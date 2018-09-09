@@ -11,7 +11,7 @@ conda env create -f environment.yml
 In `Asteroids` directory type:
 ```bash
 conda activate Asteroids
-python main.py
+python -m Asteroids
 conda deactivate
 ```
 
