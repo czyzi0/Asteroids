@@ -1,7 +1,8 @@
 name: Asteroids
 dependencies:
-  - python==3.6.6
+  - python=3.6.7
 
   - pylint
+
   - pip:
     - pygame==1.9.4

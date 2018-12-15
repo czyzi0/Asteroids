@@ -19,5 +19,5 @@ setup(
     packages=find_packages(),
     package_data={'Asteroids': ['assets/**/*']},
     python_requires='>=3.6.0',
-    install_requires=['pygame>=1.9.4']
+    install_requires=['pygame>=1.9.0']
 )
