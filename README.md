@@ -2,18 +2,16 @@
 Clone of 1979 Atari game implemented with [PyGame](https://www.pygame.org/news).
 
 ## Setup
-Clone repository and isntall game with:
-```
+Clone repository and install game with:
+```bash
 python setup.py install
 ```
 
 ## Usage
 To play type:
-```
+```bash
 python -m Asteroids
 ```
-
-## Controls
 Use __arrows__ to move ship and __space__ to shoot. You can pause the game with __P__ and exit the game with __Esc__.
 
 ## Screenshots
@@ -30,8 +28,8 @@ Commit messages are structured in accordance with:
 
 ### Code analysis
 Code analysis is performed with [Pylint](https://www.pylint.org/). To run it type:
-```
-pylint Asteroids/
+```bash
+pylint Asteroids
 ```
 
 ## Attributions
