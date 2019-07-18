@@ -50,6 +50,8 @@ class TitleScene(BaseScene):
 
     def process_input(self, events, pressed_keys):
         for event in events:
+            if event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE:
+                self.terminate()
             if event.type == pg.KEYDOWN and event.key == pg.K_RETURN:
                 assets.play_sound('beat.wav')
                 self.next_scene = GameScene()
@@ -98,7 +100,7 @@ class GameScene(BaseScene):
 
     def process_input(self, events, pressed_keys):
         for event in events:
-            # quit
+            # Quit
             if (
                     event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE
                     or
@@ -106,15 +108,15 @@ class GameScene(BaseScene):
                 ):
                 assets.play_sound('beat.wav')
                 self.next_scene = TitleScene()
-            # pause
+            # Pause
             if event.type == pg.KEYDOWN and event.key == pg.K_p and self.lives >= 0:
                 assets.play_sound('beat.wav')
                 self.paused = not self.paused
-            # shooting
+            # Shoot
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE and self.ship:
                 assets.play_sound('shot.wav')
                 self.missles.append(self.ship.shoot())
-        # move ship
+        # Move
         if self.ship:
             self.ship.process_input(
                 pressed_keys[pg.K_LEFT], pressed_keys[pg.K_RIGHT], pressed_keys[pg.K_UP])
