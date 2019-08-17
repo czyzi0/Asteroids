@@ -3,13 +3,13 @@ Clone of 1979 Atari game implemented with [PyGame](https://www.pygame.org/news).
 
 ## Setup
 Clone repository and install game with:
-```bash
+```
 python setup.py install
 ```
 
 ## Usage
 To play type:
-```bash
+```
 python -m Asteroids
 ```
 Use __arrows__ to move ship and __space__ to shoot. You can pause the game with __P__ and exit the game with __Esc__.
@@ -20,15 +20,12 @@ Use __arrows__ to move ship and __space__ to shoot. You can pause the game with 
 
 ## Development
 
-### Guide
-Commit messages are structured in accordance with:
-- Write the summary line and description in the imperative mode. Start the line with "Fix", "Add", "Change" instead of "Fixed", "Added", "Changed".
-- Always leave the second line blank.
-- Don't end the summary with a period.
+### Style guide
+Commit messages are written according to [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
 
 ### Code analysis
 Code analysis is performed with [Pylint](https://www.pylint.org/). To run it type:
-```bash
+```
 pylint Asteroids
 ```
 
