@@ -27,7 +27,7 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate test
-          pylint --rcfile=.pylintrc --exit-zero mlp/ > pylint-results.txt
+          pylint --rcfile=.pylintrc --exit-zero Asteroids/ > pylint-results.txt
       - name: Read linting results
         id: results
         uses: juliangruber/read-file-action@v1
